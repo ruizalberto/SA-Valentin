@@ -2,64 +2,150 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  body {
-    height: 100vh;
-    background: linear-gradient(135deg, #ff5f9e, #ffb6c1);
-    overflow: hidden;
-    color: white;
-  }
-  
-  .container {
-    position: relative;
-    z-index: 10;
-    height: 100vh;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #faf8f3 0%, #f5f0e8 100%); /* Beige suave */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Contenedor de corazones */
+#hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;  /* Mantener en 1 */
+    overflow: visible; /* Agregar esta línea */
+}
+
+/* Contenedor de fuegos artificiales */
+#fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Contenedor principal */
+#app {
+    position: relative;
+    z-index: 5;  /* CAMBIAR A 10 para que esté encima de los corazones */
     text-align: center;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    animation: fadeIn 1s ease;
-  }
-  
-  button {
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    background: white;
-    color: #ff4081;
-    transition: transform 0.2s ease;
-  }
-  
-  button:hover {
-    transform: scale(1.1);
-  }
-  
-  #final-buttons button {
-    margin: 10px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  #final-message h2 {
+    padding: 2rem;
+}
+
+#screen-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    min-width: 320px;
+    max-width: 500px;
+    transition: all 0.3s ease;
+    position: relative;  /* Agregar esta línea */
+    z-index: 10;  /* Agregar esta línea */
+}
+
+#message-text {
     font-size: 2.5rem;
-    margin-bottom: 15px;
-  }
-  
-  #final-message h3 {
-    margin: 10px 0 20px;
-    font-size: 1.5rem;
-  }
-  
+    color: #764ba2;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+    font-family: 'Georgia', serif;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+}
+
+.btn-primary:active, .btn-secondary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+    margin-top: 1rem;
+}
+
+/* Pantalla de celebración */
+#celebration-screen {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    min-width: 320px;
+    max-width: 600px;
+}
+
+.celebration-title {
+    font-size: 3rem;
+    color: #f5576c;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#restaurant-info {
+    margin-top: 2rem;
+}
+
+#restaurant-info h2 {
+    color: #764ba2;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+#restaurant-info p {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* Utilidades */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #message-text {
+        font-size: 1.8rem;
+    }
+    
+    .celebration-title {
+        font-size: 2rem;
+    }
+    
+    #screen-container, #celebration-screen {
+        padding: 2rem 1.5rem;
+    }
+}

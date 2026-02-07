@@ -1,49 +1,85 @@
-import { steps, restaurant } from "./data.js";
-import { createHeart } from "./effects.js";
+let currentMessageIndex = 0;
+let isLastMessage = false;
 
-const text = document.getElementById("main-text");
-const nextBtn = document.getElementById("next-btn");
-const finalButtons = document.getElementById("final-buttons");
-const yesBtn = document.getElementById("yes-btn");
-const noBtn = document.getElementById("no-btn");
-const finalMessage = document.getElementById("final-message");
+// Elementos del DOM
+const messageText = document.getElementById('message-text');
+const actionBtn = document.getElementById('action-btn');
+const screenContainer = document.getElementById('screen-container');
+const celebrationScreen = document.getElementById('celebration-screen');
+const restaurantInfo = document.getElementById('restaurant-info');
 
-const restaurantName = document.getElementById("restaurant-name");
-const maps = document.getElementById("maps");
+// Inicializar la aplicación
+function init() {
+    startHeartAnimation();
+    actionBtn.addEventListener('click', handleButtonClick);
+}
 
-let step = 0;
+// Manejar click en el botón
+function handleButtonClick() {
+    if (isLastMessage) {
+        showCelebration();
+    } else {
+        nextMessage();
+    }
+}
 
-// corazones constantes
-setInterval(createHeart, 300);
+// Mostrar siguiente mensaje
+function nextMessage() {
+    currentMessageIndex++;
+    
+    if (currentMessageIndex >= messages.length) {
+        return;
+    }
+    
+    // Animación de salida
+    messageText.classList.add('fade-out');
+    
+    setTimeout(() => {
+        messageText.textContent = messages[currentMessageIndex];
+        messageText.classList.remove('fade-out');
+        messageText.classList.add('fade-in');
+        
+        // Si es el último mensaje
+        if (currentMessageIndex === messages.length - 1) {
+            isLastMessage = true;
+            actionBtn.textContent = '¡SÍ! 💕';
+            actionBtn.classList.add('shake');
+        }
+        
+        setTimeout(() => {
+            messageText.classList.remove('fade-in');
+        }, 800);
+    }, 500);
+}
 
-nextBtn.addEventListener("click", () => {
-  step++;
+// Mostrar celebración
+function showCelebration() {
+    screenContainer.classList.add('fade-out');
+    
+    setTimeout(() => {
+        screenContainer.classList.add('hidden');
+        celebrationScreen.classList.remove('hidden');
+        celebrationScreen.classList.add('fade-in');
+        
+        // Iniciar fuegos artificiales
+        celebrationFireworks();
+        
+        // Mostrar info del restaurante después de 3 segundos
+        setTimeout(() => {
+            showRestaurantInfo();
+        }, 3000);
+    }, 500);
+}
 
-  if (step < steps.length) {
-    text.innerText = steps[step];
-  } else {
-    text.innerText = "¿Quieres ser mi SA Valentín? 💘";
-    nextBtn.classList.add("hidden");
-    finalButtons.classList.remove("hidden");
-  }
-});
+// Mostrar información del restaurante
+function showRestaurantInfo() {
+    document.getElementById('restaurant-name').textContent = restaurantData.name;
+    document.getElementById('restaurant-address').textContent = restaurantData.address;
+    document.getElementById('restaurant-link').href = restaurantData.mapsUrl;
+    
+    restaurantInfo.classList.remove('hidden');
+    restaurantInfo.classList.add('fade-in');
+}
 
-noBtn.addEventListener("mouseover", () => {
-  noBtn.style.position = "absolute";
-  noBtn.style.left = Math.random() * 80 + "%";
-  noBtn.style.top = Math.random() * 80 + "%";
-});
-
-yesBtn.addEventListener("click", () => {
-  finalButtons.classList.add("hidden");
-  text.classList.add("hidden");
-  finalMessage.classList.remove("hidden");
-
-  restaurantName.innerText = restaurant.name;
-  maps.src = restaurant.mapsUrl;
-
-  // lluvia extra de corazones
-  for (let i = 0; i < 30; i++) {
-    setTimeout(createHeart, i * 100);
-  }
-});
+// Iniciar cuando cargue el DOM
+document.addEventListener('DOMContentLoaded', init);
