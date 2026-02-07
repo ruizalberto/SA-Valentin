@@ -1,7 +1,7 @@
   // Mensajes que irán apareciendo
 const messages = [
     "Hola mi amor ❤️",
-    "Tenemos ya bastantes memorias juntos 🛕",
+    "Quiero seguir creando memorias juntos 🛕",
     "Me haces muy feliz cada día 🏍️",
     "Eres lo mejor que me ha pasado 🦋",
     "Tengo una pregunta...🤸🏼‍♂️",
@@ -10,7 +10,7 @@ const messages = [
 
 // Información del restaurante (CAMBIAR ESTOS DATOS)
 const restaurantData = {
-    name: "Restaurante Romántico",
+    name: "Sábado 14 de Febrero a las 21:00",
     address: "Calle del Amor, 123, Ciudad",
     mapsUrl: "https://maps.app.goo.gl/1vn2CX7zgNtYmrjb8"
 };
