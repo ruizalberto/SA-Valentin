@@ -3,7 +3,7 @@
     position: fixed;  /* CAMBIAR de absolute a fixed */
     width: 40px;
     height: 40px;
-    background-image: url('/SA-Valentin/assets/heart.svg');  /* CAMBIO AQUÍ */
+    background-image: url('../assets/heart.svg');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
@@ -38,7 +38,7 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    background-image: url('/SA-Valentin/assets/fire.svg');  /* CAMBIO AQUÍ */
+    background-image: url('../assets/fire.svg');
     background-size: contain;
     background-repeat: no-repeat;
     animation: explode 1s ease-out forwards;
