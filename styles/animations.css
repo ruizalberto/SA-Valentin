@@ -7,7 +7,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
-    animation: float-up 20s ease-in-out infinite;
+    animation: float-up 25s ease-in-out infinite;
     z-index: 1;  /* Detrás del contenedor */
 }
 
@@ -29,7 +29,7 @@
     100% {
         opacity: 0;
         bottom: 110vh;  /* Terminan arriba de la pantalla */
-        transform: scale(1.2) rotate(90deg);
+        transform: scale(1.2) rotate(45deg);
     }
 }
 

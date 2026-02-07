@@ -10,11 +10,11 @@ function createHeart() {
     // Empiezan desde abajo
     heart.style.bottom = '-50px';
     
-    // Retraso aleatorio
-    heart.style.animationDelay = Math.random() * 2 + 's';
+    // SIN retraso (o retraso mínimo)
+    heart.style.animationDelay = '0s';  // Cambiado a 0
     
-    // Duración aleatoria para variedad (6-10 segundos)
-    const duration = 6 + Math.random() * 4;
+    // Duración MÁS lenta: 15-20 segundos
+    const duration = 15 + Math.random() * 5;
     heart.style.animationDuration = duration + 's';
     
     heartsContainer.appendChild(heart);
@@ -86,7 +86,7 @@ function createFirework(x, y) {
 
 // Iniciar loop de corazones
 function startHeartAnimation() {
-    setInterval(createHeart, 400);
+    setInterval(createHeart, 1200);
 }
 
 // Crear múltiples fuegos artificiales
