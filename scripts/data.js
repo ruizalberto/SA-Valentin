@@ -10,7 +10,7 @@ const messages = [
 
 // Información del restaurante (CAMBIAR ESTOS DATOS)
 const restaurantData = {
-    name: "Sábado 14 de Febrero a las 21:00",
-    address: "Calle del Amor, 123, Ciudad",
-    mapsUrl: "https://maps.app.goo.gl/1vn2CX7zgNtYmrjb8"
+    name: "Viernes 13 de Febrero a las 22:30",
+    address: "C/ de l'Hedra, 5, Ciutat Vella",
+    mapsUrl: "https://maps.app.goo.gl/5igERpL31pZBNDh88"
 };
