@@ -1,0 +1,23 @@
+@keyframes floatUp {
+    from {
+      transform: translateY(100vh) scale(0.5);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-10vh) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
